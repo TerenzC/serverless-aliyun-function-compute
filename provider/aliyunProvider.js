@@ -347,6 +347,8 @@ class AliyunProvider {
     const timeout = funcObject.timeout
       || service.provider.timeout
       || 30;
+    const environment = funcObject.environment
+      || service.provider.environment;
 
     // TODO(joyeecheung): description
     return {
@@ -357,6 +359,7 @@ class AliyunProvider {
         'handler': funcObject.handler,
         'memorySize': memorySize,
         'timeout': timeout,
+        'EnvironmentVariables': environment,
         'runtime': service.provider.runtime,
         'code': {
           'ossBucketName': this.getDeploymentBucketName(),
